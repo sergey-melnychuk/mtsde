@@ -92,6 +92,28 @@ $ curl "http://www.omdbapi.com/?i=tt0111161" | python -m json.tool
 }
 ```
 
+### Example
+
+```bash
+$ curl -H 'Content-Type: application/json' -d'{"imdbId":"1","screenId":"2","availableSeats":100}' localhost:8080/movie
+OK
+```
+
+```bash
+$ curl localhost:8080/movie/1/2
+{"reservedSeats":0,"screenId":"2","imdbId":"1","availableSeats":100,"movieTitle":"<Missing title>"}
+```
+
+```bash
+$ curl -H 'Content-Type: application/json' -d'{"imdbId":"1","screenId":"2"}' localhost:8080/ticket
+1
+```
+
+```bash
+$ curl localhost:8080/movie/1/2
+{"reservedSeats":1,"screenId":"2","imdbId":"1","availableSeats":100,"movieTitle":"<Missing title>"}
+```
+
 ### Timeline
 * 12/5, 21:30 Start: repository setup from template, brief description
 * 12/5, +1h 30m DTOs and edu.mtsde.domain model ready, akka and akka-http dependencies
@@ -100,3 +122,4 @@ $ curl "http://www.omdbapi.com/?i=tt0111161" | python -m json.tool
 * 13/5, +1h Completed MovieStateActor covered with unit-tests, completed MovieManagerActor
 * 13/5, 18:30 Started akka-http based movie service, adding tests to MovieManagerActor
 * 13/5, +1h Completed server skeleton, MovieManagerActor unit-tests and simple InMemoryMovieRepository
+* 13/5, +1h Completed server functionality, added examples, updated timeline
