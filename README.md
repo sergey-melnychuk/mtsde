@@ -37,11 +37,11 @@ Interface is simple RESTful-like JSON-over-HTTP API build on Akka HTTP.
 ##### GET current state
 ```json
 {
-  "imdbId": "tt0111161",
-  "screenId": "screen_123456",
-  "movieTitle": "The Shawshank Redemption",
-  "availableSeats": 100,
-  "reservedSeats": 50
+  "imdbId": "tt0111161",
+  "screenId": "screen_123456",
+  "movieTitle": "The Shawshank Redemption",
+  "availableSeats": 100,
+  "reservedSeats": 50
 }
 ```
 
@@ -96,4 +96,5 @@ $ curl "http://www.omdbapi.com/?i=tt0111161" | python -m json.tool
 * 12/5, 21:30 Start: repository setup from template, brief description
 * 12/5, +1h 30m DTOs and edu.mtsde.domain model ready, akka and akka-http dependencies
 * 12/5, +1h Package structure, unit-tests for JSON formats, components skeletons
-
+* 13/5, 14:00 Push changes, update readme, start implementing actors
+* 13/5, +1h Completed MovieStateActor covered with unit-tests, completed MovieManagerActor
