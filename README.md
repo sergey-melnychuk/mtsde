@@ -98,3 +98,5 @@ $ curl "http://www.omdbapi.com/?i=tt0111161" | python -m json.tool
 * 12/5, +1h Package structure, unit-tests for JSON formats, components skeletons
 * 13/5, 14:00 Push changes, update readme, start implementing actors
 * 13/5, +1h Completed MovieStateActor covered with unit-tests, completed MovieManagerActor
+* 13/5, 18:30 Started akka-http based movie service, adding tests to MovieManagerActor
+* 13/5, +1h Completed server skeleton, MovieManagerActor unit-tests and simple InMemoryMovieRepository
