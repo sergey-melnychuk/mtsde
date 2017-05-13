@@ -2,8 +2,9 @@ package edu.mtsde.actors
 
 import akka.actor.{Actor, ActorLogging, Props}
 import edu.mtsde.domain.{Movie, Ticket}
+import edu.mtsde.persistence.MovieRepository
 
-class MovieStateActor(initialMovie: Movie) extends Actor with ActorLogging {
+class MovieStateActor(initialMovie: Movie, movieRepository: MovieRepository) extends Actor with ActorLogging {
   import edu.mtsde.actors.MovieStateActor._
 
   var movie = initialMovie
@@ -37,7 +38,8 @@ class MovieStateActor(initialMovie: Movie) extends Actor with ActorLogging {
 }
 
 object MovieStateActor {
-  def props(initialMovie: Movie): Props = Props(classOf[MovieStateActor], initialMovie)
+  def props(initialMovie: Movie, movieRepository: MovieRepository): Props =
+    Props(classOf[MovieStateActor], initialMovie, movieRepository)
 
   case object RequestTicket
   case class TicketRequestFailed(reason: String)
