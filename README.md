@@ -123,3 +123,9 @@ $ curl localhost:8080/movie/1/2
 * 13/5, 18:30 Started akka-http based movie service, adding tests to MovieManagerActor
 * 13/5, +1h Completed server skeleton, MovieManagerActor unit-tests and simple InMemoryMovieRepository
 * 13/5, +1h Completed server functionality, added examples, updated timeline
+* 13/5, 20:00 Completed the exercise, total time spent: 5h 30m, shortcuts described below
+
+### Shortcuts
+* For the sake of exercise, there is no point to bring MongoDB, though it's pretty straightforward
+* Resolve title by id using external resource is pretty straightforward as well (simple HTTP call), skipping
+* For this specific exercise there is no point for explicit test coverage of HTTP API, skipping
