@@ -14,7 +14,7 @@ class MovieManagerActor(movieRepository: MovieRepository) extends Actor with Act
   import edu.mtsde.actors.MovieManagerActor._
   import context.dispatcher  // required for map/recover on Future as implicit ExecutionContext
 
-  implicit val timeout: Timeout = 1 second
+  implicit val timeout: Timeout = 500 millis
 
   def receive = {
     case AddMovie(movie) =>
@@ -46,9 +46,11 @@ object MovieManagerActor {
   case class AddMovie(movie: Movie)
   case class GetMovie(imdbId: String, screenId: String)
 
-  case class MovieAddedSuccessfully(movie: Movie, ref: ActorRef)
-  case class MovieNotAdded(reason: String)
+  sealed trait AddMovieResult
+  case class MovieAddedSuccessfully(movie: Movie, ref: ActorRef) extends AddMovieResult
+  case class MovieNotAdded(reason: String) extends AddMovieResult
 
-  case class MovieFound(movie: Movie)
-  case class MovieNotFound(id: String)
+  sealed trait GetMovieResult
+  case class MovieFound(movie: Movie) extends GetMovieResult
+  case class MovieNotFound(id: String) extends GetMovieResult
 }

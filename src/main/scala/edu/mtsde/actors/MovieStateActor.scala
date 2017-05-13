@@ -42,8 +42,10 @@ object MovieStateActor {
     Props(classOf[MovieStateActor], initialMovie, movieRepository)
 
   case object RequestTicket
-  case class TicketRequestFailed(reason: String)
-  case class TicketRequestSucceed(ticket: Ticket)
+
+  sealed trait RequestTicketResult
+  case class TicketRequestFailed(reason: String) extends RequestTicketResult
+  case class TicketRequestSucceed(ticket: Ticket) extends RequestTicketResult
 
   case object GetMovieState
   case class MovieState(movie: Movie)
