@@ -95,6 +95,11 @@ $ curl "http://www.omdbapi.com/?i=tt0111161" | python -m json.tool
 ### Example
 
 ```bash
+$ sbt run
+...
+```
+
+```bash
 $ curl -H 'Content-Type: application/json' -d'{"imdbId":"1","screenId":"2","availableSeats":100}' localhost:8080/movie
 OK
 ```
